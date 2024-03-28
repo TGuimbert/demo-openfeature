@@ -1,0 +1,44 @@
+{
+  "flags": {
+    "welcome-message": {
+      "variants": {
+        "on": true,
+        "off": false
+      },
+      "state": "ENABLED",
+      "defaultVariant": "off"
+    },
+    "my-feature": {
+      "variants": {
+        "old": "Good ol' feature",
+        "new": "Shiny new feature"
+      },
+      "state": "ENABLED",
+      "defaultVariant": "old",
+      "targeting": {
+        "if": [
+          {
+            "ends_with": [{"var": "email"}, "@domain.com"]
+          },
+          "new", "old"
+        ]
+      }
+    },
+    "color": {
+      "variants": {
+        "red": "#FF0000",
+        "green": "#00FF00",
+        "blue": "#0000FF"
+      },
+      "state": "ENABLED",
+      "defaultVariant": "blue",
+      "targeting": {
+        "fractional": [
+          { "var": "email" },
+          [ "green", 75 ],
+          [ "red", 25 ]
+        ]
+      }
+    }
+  }
+}
